@@ -11,6 +11,8 @@ config.resolver.blockList = [
   ...Array.from(config.resolver.blockList ?? []),
   new RegExp(path.resolve('..', 'node_modules', 'react')),
   new RegExp(path.resolve('..', 'node_modules', 'react-native')),
+  new RegExp(path.resolve('..', 'node_modules', 'expo')),
+  new RegExp(path.resolve('..', 'node_modules', 'expo-modules-core')),
 ];
 
 config.resolver.nodeModulesPaths = [
@@ -18,8 +20,15 @@ config.resolver.nodeModulesPaths = [
   path.resolve(__dirname, '../node_modules'),
 ];
 
+// Avoid resolving dependencies by walking parent folders (prevents SDK mismatch).
+config.resolver.disableHierarchicalLookup = true;
+
 config.resolver.extraNodeModules = {
   '@yuborama/avatar-view': '..',
+  expo: path.resolve(__dirname, 'node_modules', 'expo'),
+  'expo-modules-core': path.resolve(__dirname, 'node_modules', 'expo-modules-core'),
+  react: path.resolve(__dirname, 'node_modules', 'react'),
+  'react-native': path.resolve(__dirname, 'node_modules', 'react-native'),
 };
 
 config.watchFolders = [path.resolve(__dirname, '..')];
