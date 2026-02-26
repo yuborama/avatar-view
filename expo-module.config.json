@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["AvatarViewModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.yuboramaavatarview.AvatarViewModule"]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@yuborama/avatar-view": ["../src/index"],
+      "@yuborama/avatar-view/*": ["../src/*"]
+    }
+  }
+}
