@@ -35,14 +35,15 @@ public class AvatarViewModule: Module {
     // Enables the module to be used as a native view. Definition components that are accepted as part of the
     // view definition: Prop, Events.
     View(AvatarView.self) {
-      // Defines a setter for the `url` prop.
-      Prop("url") { (view: AvatarView, url: URL) in
-        if view.webView.url != url {
-          view.webView.load(URLRequest(url: url))
-        }
+      // Defines a setter for the `name` prop.
+      Prop("name") { (view: AvatarView, name: String) in
+        view.name = name
       }
 
-      Events("onLoad")
+      // Defines a setter for the `size` prop.
+      Prop("size") { (view: AvatarView, size: Double) in
+        view.size = CGFloat(size)
+      }
     }
   }
 }

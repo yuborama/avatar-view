@@ -1,46 +1,44 @@
-import { useEvent } from 'expo';
-import AvatarView, { AvatarView } from '@yuborama/avatar-view';
-import { Button, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { useEvent } from "expo";
+import AvatarViewModule, { AvatarView } from "@yuborama/avatar-view";
+import { Button, SafeAreaView, ScrollView, Text, View } from "react-native";
 
 export default function App() {
-  const onChangePayload = useEvent(AvatarView, 'onChange');
+  const onChangePayload = useEvent(AvatarViewModule, "onChange");
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.container}>
         <Text style={styles.header}>Module API Example</Text>
         <Group name="Constants">
-          <Text>{AvatarView.PI}</Text>
+          <Text>{AvatarViewModule.PI}</Text>
         </Group>
         <Group name="Functions">
-          <Text>{AvatarView.hello()}</Text>
+          <Text>{AvatarViewModule.hello()}</Text>
         </Group>
-        <Group name="Async functions">
-          <Button
-            title="Set value"
-            onPress={async () => {
-              await AvatarView.setValueAsync('Hello from JS!');
-            }}
-          />
+        <Group
+          name="Views"
+          style={{ flexDirection: "row", flexWrap: "wrap", gap: 20 }}
+        >
+          <AvatarView name="Santiago Lopez" size={50} />
+          <AvatarView name="santiago" size={100} />
+          <AvatarView name=" ana maria    " size={30} />
+          <AvatarView name="juan" size={200} />
         </Group>
         <Group name="Events">
           <Text>{onChangePayload?.value}</Text>
-        </Group>
-        <Group name="Views">
-          <AvatarView
-            url="https://www.example.com"
-            onLoad={({ nativeEvent: { url } }) => console.log(`Loaded: ${url}`)}
-            style={styles.view}
-          />
         </Group>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
-function Group(props: { name: string; children: React.ReactNode }) {
+function Group(props: {
+  name: string;
+  children: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
+}) {
   return (
-    <View style={styles.group}>
+    <View style={[styles.group, { height: "auto" }, props.style]}>
       <Text style={styles.groupHeader}>{props.name}</Text>
       {props.children}
     </View>
@@ -58,16 +56,17 @@ const styles = {
   },
   group: {
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#a83f3f",
     borderRadius: 10,
     padding: 20,
   },
   container: {
     flex: 1,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee",
   },
   view: {
-    flex: 1,
-    height: 200,
+    width: 120,
+    height: 120,
+    alignSelf: "center",
   },
 };

@@ -1,9 +1,5 @@
 import type { StyleProp, ViewStyle } from 'react-native';
 
-export type OnLoadEventPayload = {
-  url: string;
-};
-
 export type AvatarViewModuleEvents = {
   onChange: (params: ChangeEventPayload) => void;
 };
@@ -13,7 +9,7 @@ export type ChangeEventPayload = {
 };
 
 export type AvatarViewProps = {
-  url: string;
-  onLoad: (event: { nativeEvent: OnLoadEventPayload }) => void;
+  name: string;
+  size?: number;
   style?: StyleProp<ViewStyle>;
 };

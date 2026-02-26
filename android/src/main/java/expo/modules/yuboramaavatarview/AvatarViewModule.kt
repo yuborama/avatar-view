@@ -1,8 +1,7 @@
-package expo.modules.yuboramaavatarview
+package expo.modules.avatarview
 
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
-import java.net.URL
 
 class AvatarViewModule : Module() {
   // Each module class must implement the definition function. The definition consists of components
@@ -39,12 +38,15 @@ class AvatarViewModule : Module() {
     // Enables the module to be used as a native view. Definition components that are accepted as part of
     // the view definition: Prop, Events.
     View(AvatarView::class) {
-      // Defines a setter for the `url` prop.
-      Prop("url") { view: AvatarView, url: URL ->
-        view.webView.loadUrl(url.toString())
+      // Defines a setter for the `name` prop.
+      Prop("name") { view: AvatarView, name: String ->
+        view.name = name
       }
-      // Defines an event that the view can send to JavaScript.
-      Events("onLoad")
+
+      // Defines a setter for the `size` prop.
+      Prop("size") { view: AvatarView, size: Float ->
+        view.size = size
+      }
     }
   }
 }
