@@ -1,4 +1,4 @@
-package expo.modules.avatarview
+package expo.modules.yuboramaavatarview
 
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition

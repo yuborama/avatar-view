@@ -1,4 +1,4 @@
-package expo.modules.avatarview
+package expo.modules.yuboramaavatarview
 
 import android.graphics.Color
 import kotlin.random.Random
