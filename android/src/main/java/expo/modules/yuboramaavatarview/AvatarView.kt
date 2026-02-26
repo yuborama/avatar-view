@@ -6,7 +6,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
 import android.util.TypedValue
-import androidx.appcompat.widget.AppCompatTextView
+import android.widget.TextView
 import expo.modules.kotlin.AppContext
 import expo.modules.kotlin.views.ExpoView
 import kotlin.math.max
@@ -15,7 +15,7 @@ class AvatarView(context: Context, appContext: AppContext) : ExpoView(context, a
   private var avatarSizeDp: Float = 120f
   private var avatarColor: Int = generateRandomColor()
 
-  private val initialsView = AppCompatTextView(context).apply {
+  private val initialsView = TextView(context).apply {
     gravity = Gravity.CENTER
     setTextColor(Color.WHITE)
     typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
